@@ -28,5 +28,6 @@ typedef struct
 } Snake;
 
 void initSnake(Snake *snake);
+void moveSnake(Snake *snake);
 
 #endif

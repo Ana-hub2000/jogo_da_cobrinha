@@ -1,0 +1,13 @@
+#ifndef FOOD_H
+#define FOOD_H
+
+typedef struct
+{
+    int x;
+    int y;
+
+} Food;
+
+void initFood(Food *food);
+
+#endif
