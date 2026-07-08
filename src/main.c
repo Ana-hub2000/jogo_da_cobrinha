@@ -1,20 +1,29 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <time.h>
+#include "menu.h"
 #include "game.h"
-
+int maxScore = 100;
 int main(void)
 {
     srand(time(NULL));
-    initscr();
-    keypad(stdscr, TRUE);    // Habilita as teclas especiais (setas)
-nodelay(stdscr, TRUE);   // getch() não bloqueia o jogo
-    noecho();          // Não mostra as teclas digitadas
-    curs_set(0);       // Esconde o cursor
 
-    gameInit();
-    gameLoop();
-    gameEnd();
+    initscr();
+
+    keypad(stdscr, TRUE);
+    nodelay(stdscr, FALSE);
+
+    noecho();
+    curs_set(0);
+
+    int maxScore = 100;
+
+    if (showMenu(&maxScore))
+    {
+        gameInit(maxScore);
+        gameLoop();
+        gameEnd();
+    }
 
     endwin();
 

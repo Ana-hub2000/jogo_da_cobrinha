@@ -14,12 +14,14 @@ CFLAGS = -Wall -Wextra -Iinclude
 LDFLAGS = -lncurses
 
 # Arquivos .c do projeto
+# Arquivos .c do projeto
 SRC = src/main.c \
       src/game.c \
       src/snake.c \
       src/render.c \
       src/input.c \
-      src/food.c
+      src/food.c \
+      src/menu.c
 # Nome do programa gerado após a compilação
 TARGET = snake
 # Regra principal

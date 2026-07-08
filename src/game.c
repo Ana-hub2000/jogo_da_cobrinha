@@ -1,23 +1,26 @@
 #include <ncurses.h>
 #include <stdbool.h>
 
+
 #include "game.h"
 #include "snake.h"
 #include "render.h"
 #include "input.h"
 #include "food.h"
-
+static int maxScore = 100;
 static Snake snake;
 static Food food;
 static int score = 0;
 bool running = true;
-void gameInit(void)
+void gameInit(int targetScore)
 {
     initSnake(&snake);
     initFood(&food);
 
     score = 0;
     running = true;
+
+    maxScore = targetScore;
 }
 void checkFoodCollision(void)
 {
@@ -55,9 +58,9 @@ void checkGameOver(void)
     if (snake.body[0].y >= LINES - 1)
         running = false;
 
-    /* Chegou a 100 pontos */
-    if (score >= 100)
-        running = false;
+   
+    if (score >= maxScore)
+    running = false;
 }
 void gameLoop(void)
 {
