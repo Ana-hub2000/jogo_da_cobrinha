@@ -9,17 +9,15 @@ int main(void)
     srand(time(NULL));
 
     initscr();
-
     keypad(stdscr, TRUE);
     nodelay(stdscr, FALSE);
 
     noecho();
     curs_set(0);
 
-    int maxScore = 100;
-
     if (showMenu(&maxScore))
     {
+        nodelay(stdscr, TRUE);
         gameInit(maxScore);
         gameLoop();
         gameEnd();

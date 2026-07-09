@@ -64,7 +64,7 @@ void checkGameOver(void)
 }
 void gameLoop(void)
 {
-    while (running)
+     while (running)
     {
         processInput(&snake);
 
